@@ -1,9 +1,14 @@
 module Edmunds
   class V2 < API
-
     def call_v2_api(options)
       set_options(options) if options.present?
-      @base = "https://api.edmunds.com/api/vehicle/v2"
+      @base = 'https://api.edmunds.com/api/vehicle/v2'
+      call_api
+    end
+
+    def call_v2_media_api
+      set_options(options) if options.present?
+      @base = 'https://api.edmunds.com/api/media/v2'
       call_api
     end
 
@@ -14,6 +19,5 @@ module Edmunds
       end
       @url += options_string
     end
-
   end
 end
