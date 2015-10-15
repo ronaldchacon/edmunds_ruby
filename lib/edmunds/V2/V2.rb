@@ -6,7 +6,7 @@ module Edmunds
       call_api
     end
 
-    def call_v2_media_api
+    def call_v2_media_api(options)
       set_options(options) if options.present?
       @base = 'https://api.edmunds.com/api/media/v2'
       call_api
