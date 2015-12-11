@@ -29,10 +29,10 @@ module Edmunds
       @base_url = @base + @url + @format
       begin
         @resp = RestClient.get(@base_url)
+        @json = JSON.parse(@resp)
       rescue => e
         e.response
       end
-      @json = JSON.parse(@resp)
     end
 
   end
