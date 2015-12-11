@@ -27,7 +27,11 @@ module Edmunds
 
     def call_api
       @base_url = @base + @url + @format
-      @resp = RestClient.get(@base_url)
+      begin
+        @resp = RestClient.get(@base_url)
+      rescue => e
+        e.response
+      end
       @json = JSON.parse(@resp)
     end
 
